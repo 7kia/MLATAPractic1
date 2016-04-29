@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="MyClass">
+      <UniqueIdentifier>{6ef73af2-789e-4f15-840a-308ffcba1760}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -26,6 +29,15 @@
     </ClInclude>
     <ClInclude Include="StringUtils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solver.h">
+      <Filter>MyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="SRange.h">
+      <Filter>MyClass</Filter>
+    </ClInclude>
+    <ClInclude Include="Runner.h">
+      <Filter>MyClass</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -46,6 +58,15 @@
     </ClCompile>
     <ClCompile Include="StringUtilsTests.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Solver.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="SRange.cpp">
+      <Filter>MyClass</Filter>
+    </ClCompile>
+    <ClCompile Include="Runner.cpp">
+      <Filter>MyClass</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
