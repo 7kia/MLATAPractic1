@@ -4,21 +4,27 @@
 // Метод возвращает количество вхождений искомой подстроки в переданный текст.
 unsigned CStringUtils::Count(const std::string &text, CSearchDFA &dfa)
 {
-	size_t position = 0;
-	size_t foundPosition = 0;
-	size_t counter = 0;
+		size_t position = 0;
+		size_t foundPosition = 0;
+		size_t counter = 0;
 
-	while ((position + dfa.GetSizeSearchString()) < text.size())
+
+	if (dfa.GetSizeSearchString() > 0)
 	{
-		foundPosition = dfa.Find(text, position);
 
-		if (foundPosition == std::numeric_limits<size_t>::max())
+		while ((position + dfa.GetSizeSearchString()) < text.size())
 		{
-			break;
+			foundPosition = dfa.Find(text, position);
+
+			if (foundPosition == std::numeric_limits<size_t>::max())
+			{
+				break;
+			}
+			position = foundPosition + dfa.GetSizeSearchString();
+			counter++;
 		}
-		position = foundPosition + dfa.GetSizeSearchString();
-		counter++;
 	}
+
 
 	return counter;
 }
@@ -37,17 +43,20 @@ std::vector<size_t> CStringUtils::FindAll(const std::string &text, CSearchDFA &d
 	size_t foundPosition = 0;
 	std::vector<size_t> foundPositions;
 
-	while ((position + dfa.GetSizeSearchString()) < text.size())
+	if (dfa.GetSizeSearchString() > 0)
 	{
-		foundPosition = dfa.Find(text, position);
-
-		if (foundPosition == std::numeric_limits<size_t>::max())
+		while (position < text.size())
 		{
-			break;
-		}
-		foundPositions.push_back(foundPosition);
+			foundPosition = dfa.Find(text, position);
 
-		position = foundPosition + dfa.GetSizeSearchString() + 1;
+			if (foundPosition == std::numeric_limits<size_t>::max())
+			{
+				break;
+			}
+			foundPositions.push_back(foundPosition);
+
+			position = foundPosition + dfa.GetSizeSearchString() + 1;
+		}
 	}
 
 	return foundPositions;
